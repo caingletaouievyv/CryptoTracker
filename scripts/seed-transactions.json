@@ -1,0 +1,1142 @@
+[
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00120258,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2026-02-09T18:25:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.00120258,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2026-02-09T18:25:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 1.20559e-8,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2026-02-09T18:25:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -84.74,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2026-02-05T13:07:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 84.74,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2026-02-05T13:06:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Fulfill an order"
+  },
+  {
+    "symbol": "NIGHT",
+    "type": "Fee",
+    "quantity": -1.129610714,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2026-01-13T06:43:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "NIGHT",
+    "type": "Deposit",
+    "quantity": 1.129610714,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-12-09T15:21:00Z",
+    "baseCurrency": "USD",
+    "notes": "Received"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00186371,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-11-18T13:24:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.00186371,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-11-18T13:24:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -168.86,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-11-18T13:22:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 168.86,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-11-18T13:20:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Fulfill an order"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00168649,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-11-05T04:42:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.00168649,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-11-05T04:42:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -169.83,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-11-05T04:36:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 169.83,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-11-05T04:35:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Fulfill an order"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Buy",
+    "quantity": 3.43042751,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-22T05:54:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Fee",
+    "quantity": -3.43042751,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-22T05:54:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -61.94302386,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-22T05:53:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 61.94302385,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-22T05:53:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00093252,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-17T14:57:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.00093252,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-17T14:57:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -100,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-17T14:56:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 100,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-17T14:54:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Fee",
+    "quantity": -0.21305723,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:45:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Buy",
+    "quantity": 0.21305723,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:45:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00054031,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:45:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.00054031,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:45:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -40,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-11T05:44:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 40,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-11T05:43:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -60,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-11T05:42:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Buy",
+    "quantity": 6.20498189,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:36:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Fee",
+    "quantity": -6.20498189,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:36:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "AVAX",
+    "type": "Buy",
+    "quantity": 4.74570723,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:36:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "AVAX",
+    "type": "Fee",
+    "quantity": -4.7458,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-11T05:36:00Z",
+    "baseCurrency": "USD",
+    "notes": "Stake"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -80,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-11T05:32:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -80,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-11T05:31:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 220,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-11T05:30:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 141.3059121,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-05T13:51:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Fee",
+    "quantity": -141.3059121,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-05T13:51:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Withdraw",
+    "quantity": -0.001133,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-05T13:51:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.001133,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-05T13:51:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Fee",
+    "quantity": -141.3989913,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-05T13:15:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 141.3989913,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-10-05T13:15:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Withdraw",
+    "quantity": -0.001133,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-05T13:14:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.001133,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-10-05T13:13:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Buy",
+    "quantity": 1.94653169,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-26T02:59:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Fee",
+    "quantity": -1.94653169,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-26T02:59:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 40,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-26T02:56:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -40,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-26T02:56:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Fee",
+    "quantity": -39.8933856,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-19T02:57:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 39.8933856,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-19T02:57:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Withdraw",
+    "quantity": -0.16,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-19T02:54:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Buy",
+    "quantity": 0.16,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-19T02:53:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Fee",
+    "quantity": -0.33651319,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:39:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "AVAX",
+    "type": "Fee",
+    "quantity": -0.2244,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:38:00Z",
+    "baseCurrency": "USD",
+    "notes": "Stake"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Fee",
+    "quantity": -0.07600616,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:37:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00039335,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:36:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 4.76801e-9,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-11T13:35:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "AVAX",
+    "type": "Buy",
+    "quantity": 0.224492772,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:35:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Buy",
+    "quantity": 0.336513187,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:33:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Buy",
+    "quantity": 0.076006154,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:31:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.000393349,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:30:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "AVAX",
+    "type": "Withdraw",
+    "quantity": -0.000077974,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-11T13:07:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "PI",
+    "type": "Withdraw",
+    "quantity": -220,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-11T13:07:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "PI",
+    "type": "Deposit",
+    "quantity": 220,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-11T12:58:00Z",
+    "baseCurrency": "USD",
+    "notes": "Deposit"
+  },
+  {
+    "symbol": "PI",
+    "type": "Withdraw",
+    "quantity": -0.5,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-11T12:48:00Z",
+    "baseCurrency": "USD",
+    "notes": "Withdrawal"
+  },
+  {
+    "symbol": "PI",
+    "type": "Deposit",
+    "quantity": 0.5,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-11T12:48:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -1,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-11T12:43:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 1,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-11T12:43:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 1.94e-14,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:27:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Buy",
+    "quantity": 2.18362e-9,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:27:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Buy",
+    "quantity": 0.57848198,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:26:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Fee",
+    "quantity": -0.5785437,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:26:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -119.147377,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:26:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 119.147377,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:25:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "OKSOL",
+    "type": "Withdraw",
+    "quantity": -0.5831,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:25:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Fee",
+    "quantity": -0.89330786,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:21:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "AVAX",
+    "type": "Fee",
+    "quantity": -1.4232,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:20:00Z",
+    "baseCurrency": "USD",
+    "notes": "Stake"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Fee",
+    "quantity": -0.5831,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:20:00Z",
+    "baseCurrency": "USD",
+    "notes": "SOL Staking subscription"
+  },
+  {
+    "symbol": "OKSOL",
+    "type": "Deposit",
+    "quantity": 0.5831,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:20:00Z",
+    "baseCurrency": "USD",
+    "notes": "SOL Staking swapping"
+  },
+  {
+    "symbol": "LINK",
+    "type": "Buy",
+    "quantity": 0.893307865,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:19:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "AVAX",
+    "type": "Buy",
+    "quantity": 1.421632354,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:19:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "SOL",
+    "type": "Buy",
+    "quantity": 0.58316173,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-09-08T06:19:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 5.318e-13,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:19:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -175,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:10:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 175,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-09-08T06:10:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Fee",
+    "quantity": -314.648875,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-29T12:58:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 314.648875,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-29T12:57:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00088612,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-29T12:57:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.000886122,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-29T12:56:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Withdraw",
+    "quantity": -1.98006e-9,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-26T04:44:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -100,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-25T04:17:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 100,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-25T04:17:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00206097,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-22T04:12:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 9.40426e-9,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-22T04:11:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.002060963,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-22T04:11:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -100,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-20T04:15:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 100,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-20T04:15:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -2,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-20T03:39:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 2,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-20T03:39:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 130,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-20T03:38:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -130,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-20T03:38:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00043869,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-19T13:29:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.000438699,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-19T13:26:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -30.83655494,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-19T13:19:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 20,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-19T13:14:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -20,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-19T13:14:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 30.83655494,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-19T12:51:00Z",
+    "baseCurrency": "USDT",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Withdraw",
+    "quantity": -0.000250007,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-14T08:38:00Z",
+    "baseCurrency": "USD",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.00025,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-14T08:37:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn redemption"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Fee",
+    "quantity": -0.00099921,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-01T07:32:00Z",
+    "baseCurrency": "USD",
+    "notes": "Simple Earn subscription"
+  },
+  {
+    "symbol": "BTC",
+    "type": "Buy",
+    "quantity": 0.000999207,
+    "priceAtTransaction": 0,
+    "fee": 0,
+    "date": "2025-08-01T07:31:00Z",
+    "baseCurrency": "USD",
+    "notes": "From unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Withdraw",
+    "quantity": -116.5,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-01T07:30:00Z",
+    "baseCurrency": "USDT",
+    "notes": "To unified trading account"
+  },
+  {
+    "symbol": "USDT",
+    "type": "Deposit",
+    "quantity": 116.5,
+    "priceAtTransaction": 1,
+    "fee": 0,
+    "date": "2025-08-01T07:30:00Z",
+    "baseCurrency": "USDT",
+    "notes": "Simple Earn redemption"
+  }
+]

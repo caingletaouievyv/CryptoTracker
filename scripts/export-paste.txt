@@ -1,0 +1,115 @@
+Time	Note	Amount	Before Balance	After Balance	Symbol	Type
+2/9/2026 18:25	Simple Earn subscription	-0.00120258	0.001202581	1.27472E-09	BTC	Check Note
+2/9/2026 18:25	From unified trading account	0.00120258	1.27472E-09	0.001202581	BTC	Check Note
+2/9/2026 18:25	From unified trading account	1.20559E-08	0	1.20559E-08	USDT	Check Note
+2/5/2026 13:07	To unified trading account	-84.74	84.74	0	USDT	Check Note
+2/5/2026 13:06	Fulfill an order	84.74	2.32434E-09	84.74	USDT	Check Note
+1/13/2026 6:43	Simple Earn subscription	-1.129610714	1.129610714	0	NIGHT	Check Note
+12/9/2025 15:21	Received	1.129610714	0	1.129610714	NIGHT	Check Note
+11/18/2025 13:24	Simple Earn subscription	-0.00186371	0.001863711	1.27472E-09	BTC	Check Note
+11/18/2025 13:24	From unified trading account	0.00186371	1.27472E-09	0.001863711	BTC	Check Note
+11/18/2025 13:22	To unified trading account	-168.86	168.86	2.32434E-09	USDT	Check Note
+11/18/2025 13:20	Fulfill an order	168.86	2.32434E-09	168.86	USDT	Check Note
+11/5/2025 4:42	Simple Earn subscription	-0.00168649	0.001686491	1.27472E-09	BTC	Check Note
+11/5/2025 4:42	From unified trading account	0.00168649	1.27472E-09	0.001686491	BTC	Check Note
+11/5/2025 4:36	To unified trading account	-169.83	169.83	2.32434E-09	USDT	Check Note
+11/5/2025 4:35	Fulfill an order	169.83	2.32434E-09	169.83	USDT	Check Note
+10/22/2025 5:54	From unified trading account	3.43042751	1.17837E-09	3.430427511	LINK	Check Note
+10/22/2025 5:54	Simple Earn subscription	-3.43042751	3.430427511	1.17837E-09	LINK	Check Note
+10/22/2025 5:53	To unified trading account	-61.94302386	61.94302386	2.32434E-09	USDT	Check Note
+10/22/2025 5:53	Simple Earn redemption	61.94302385	9.86737E-09	61.94302386	USDT	Check Note
+10/17/2025 14:57	Simple Earn subscription	-0.00093252	0.000932521	1.27472E-09	BTC	Check Note
+10/17/2025 14:57	From unified trading account	0.00093252	1.27472E-09	0.000932521	BTC	Check Note
+10/17/2025 14:56	To unified trading account	-100	100	9.86737E-09	USDT	Check Note
+10/17/2025 14:54	Simple Earn redemption	100	9.86737E-09	100	USDT	Check Note
+10/11/2025 5:45	Simple Earn subscription	-0.21305723	0.213057236	5.89436E-09	SOL	Check Note
+10/11/2025 5:45	From unified trading account	0.21305723	5.89436E-09	0.213057236	SOL	Check Note
+10/11/2025 5:45	Simple Earn subscription	-0.00054031	0.000540311	1.27472E-09	BTC	Check Note
+10/11/2025 5:45	From unified trading account	0.00054031	1.27472E-09	0.000540311	BTC	Check Note
+10/11/2025 5:44	To unified trading account	-40	40.00000001	9.86737E-09	USDT	Check Note
+10/11/2025 5:43	Simple Earn redemption	40	9.86737E-09	40.00000001	USDT	Check Note
+10/11/2025 5:42	To unified trading account	-60	60.00000001	9.86737E-09	USDT	Check Note
+10/11/2025 5:36	From unified trading account	6.20498189	1.17837E-09	6.204981891	LINK	Check Note
+10/11/2025 5:36	Simple Earn subscription	-6.20498189	6.204981891	1.17837E-09	LINK	Check Note
+10/11/2025 5:36	From unified trading account	4.74570723	9.27723E-05	4.745800002	AVAX	Check Note
+10/11/2025 5:36	Stake	-4.7458	4.745800002	2.27332E-09	AVAX	Check Note
+10/11/2025 5:32	To unified trading account	-80	140	60.00000001	USDT	Check Note
+10/11/2025 5:31	To unified trading account	-80	220	140	USDT	Check Note
+10/11/2025 5:30	Simple Earn redemption	220	9.86737E-09	220	USDT	Check Note
+10/5/2025 13:51	From unified trading account	141.3059121	9.86737E-09	141.3059121	USDT	Check Note
+10/5/2025 13:51	Simple Earn subscription	-141.3059121	141.3059121	9.86737E-09	USDT	Check Note
+10/5/2025 13:51	To unified trading account	-0.001133	0.001133001	1.27472E-09	BTC	Check Note
+10/5/2025 13:51	Simple Earn redemption	0.001133	1.27472E-09	0.001133001	BTC	Check Note
+10/5/2025 13:15	Simple Earn subscription	-141.3989913	141.3989913	9.86737E-09	USDT	Check Note
+10/5/2025 13:15	From unified trading account	141.3989913	9.86737E-09	141.3989913	USDT	Check Note
+10/5/2025 13:14	To unified trading account	-0.001133	0.001133001	1.27472E-09	BTC	Check Note
+10/5/2025 13:13	Simple Earn redemption	0.001133	1.27472E-09	0.001133001	BTC	Check Note
+9/26/2025 2:59	From unified trading account	1.94653169	1.17837E-09	1.946531691	LINK	Check Note
+9/26/2025 2:59	Simple Earn subscription	-1.94653169	1.946531691	1.17837E-09	LINK	Check Note
+9/26/2025 2:56	Simple Earn redemption	40	9.86737E-09	40.00000001	USDT	Check Note
+9/26/2025 2:56	To unified trading account	-40	40.00000001	9.86737E-09	USDT	Check Note
+9/19/2025 2:57	Simple Earn subscription	-39.8933856	39.89338561	9.86737E-09	USDT	Check Note
+9/19/2025 2:57	From unified trading account	39.8933856	9.86737E-09	39.89338561	USDT	Check Note
+9/19/2025 2:54	To unified trading account	-0.16	0.160000006	5.89436E-09	SOL	Check Note
+9/19/2025 2:53	Simple Earn redemption	0.16	5.89436E-09	0.160000006	SOL	Check Note
+9/11/2025 13:39	Simple Earn subscription	-0.33651319	0.336513191	1.17837E-09	LINK	Check Note
+9/11/2025 13:38	Stake	-0.2244	0.224492772	9.27723E-05	AVAX	Check Note
+9/11/2025 13:37	Simple Earn subscription	-0.07600616	0.076006166	5.89436E-09	SOL	Check Note
+9/11/2025 13:36	Simple Earn subscription	-0.00039335	0.000393351	1.27472E-09	BTC	Check Note
+9/11/2025 13:35	From unified trading account	4.76801E-09	5.09935E-09	9.86737E-09	USDT	Check Note
+9/11/2025 13:35	From unified trading account	0.224492772	0	0.224492772	AVAX	Check Note
+9/11/2025 13:33	From unified trading account	0.336513187	4.53058E-09	0.336513191	LINK	Check Note
+9/11/2025 13:31	From unified trading account	0.076006154	1.20785E-08	0.076006166	SOL	Check Note
+9/11/2025 13:30	From unified trading account	0.000393349	2.29943E-09	0.000393351	BTC	Check Note
+9/11/2025 13:07	To unified trading account	-7.7974E-05	7.7974E-05	0	AVAX	Check Note
+9/11/2025 13:07	To unified trading account	-220	220	0	PI	Check Note
+9/11/2025 12:58	Deposit	220	0	220	PI	Check Note
+9/11/2025 12:48	Withdrawal	-0.5	0.5	0	PI	Check Note
+9/11/2025 12:48	From unified trading account	0.5	0	0.5	PI	Check Note
+9/11/2025 12:43	To unified trading account	-1	1.000000005	5.09935E-09	USDT	Check Note
+9/11/2025 12:43	Simple Earn redemption	1	5.09935E-09	1.000000005	USDT	Check Note
+9/8/2025 6:27	From unified trading account	1.94E-14	5.09933E-09	5.09935E-09	USDT	Check Note
+9/8/2025 6:27	From unified trading account	2.18362E-09	9.89484E-09	1.20785E-08	SOL	Check Note
+9/8/2025 6:26	From unified trading account	0.57848198	6.17299E-05	0.57854371	SOL	Check Note
+9/8/2025 6:26	Simple Earn subscription	-0.5785437	0.57854371	9.89484E-09	SOL	Check Note
+9/8/2025 6:26	To unified trading account	-119.147377	119.147377	5.09933E-09	USDT	Check Note
+9/8/2025 6:25	From unified trading account	119.147377	7.09933E-09	119.147377	USDT	Check Note
+9/8/2025 6:25	To unified trading account	-0.5831	0.5831	0	OKSOL	Check Note
+9/8/2025 6:21	Simple Earn subscription	-0.89330786	0.893307865	4.53058E-09	LINK	Check Note
+9/8/2025 6:20	Stake	-1.4232	1.423277974	7.7974E-05	AVAX	Check Note
+9/8/2025 6:20	SOL Staking subscription	-0.5831	0.58316173	6.17299E-05	SOL	Check Note
+9/8/2025 6:20	SOL Staking swapping	0.5831	0	0.5831	OKSOL	Check Note
+9/8/2025 6:19	From unified trading account	0.893307865	0	0.893307865	LINK	Check Note
+9/8/2025 6:19	From unified trading account	1.421632354	0.00164562	1.423277974	AVAX	Check Note
+9/8/2025 6:19	From unified trading account	0.58316173	0	0.58316173	SOL	Check Note
+9/8/2025 6:19	From unified trading account	5.318E-13	7.0988E-09	7.09933E-09	USDT	Check Note
+9/8/2025 6:10	To unified trading account	-175	175	7.0988E-09	USDT	Check Note
+9/8/2025 6:10	Simple Earn redemption	175	7.0988E-09	175	USDT	Check Note
+8/29/2025 12:58	Simple Earn subscription	-314.648875	314.648875	7.0988E-09	USDT	Check Note
+8/29/2025 12:57	Simple Earn redemption	314.648875	9.40426E-09	314.648875	USDT	Check Note
+8/29/2025 12:57	Simple Earn subscription	-0.00088612	0.000886122	2.29943E-09	BTC	Check Note
+8/29/2025 12:56	From unified trading account	0.000886122	0	0.000886122	BTC	Check Note
+8/26/2025 4:44	To unified trading account	-1.98006E-09	1.98006E-09	0	BTC	Check Note
+8/25/2025 4:17	To unified trading account	-100	100	9.40426E-09	USDT	Check Note
+8/25/2025 4:17	Simple Earn redemption	100	9.40426E-09	100	USDT	Check Note
+8/22/2025 4:12	Simple Earn subscription	-0.00206097	0.002060972	1.98006E-09	BTC	Check Note
+8/22/2025 4:11	From unified trading account	9.40426E-09	0	9.40426E-09	USDT	Check Note
+8/22/2025 4:11	From unified trading account	0.002060963	9.16458E-09	0.002060972	BTC	Check Note
+8/20/2025 4:15	To unified trading account	-100	100	0	USDT	Check Note
+8/20/2025 4:15	Simple Earn redemption	100	0	100	USDT	Check Note
+8/20/2025 3:39	To unified trading account	-2	2	0	USDT	Check Note
+8/20/2025 3:39	Simple Earn redemption	2	0	2	USDT	Check Note
+8/20/2025 3:38	Simple Earn redemption	130	0	130	USDT	Check Note
+8/20/2025 3:38	To unified trading account	-130	130	0	USDT	Check Note
+8/19/2025 13:29	Simple Earn subscription	-0.00043869	0.000438699	9.16458E-09	BTC	Check Note
+8/19/2025 13:26	From unified trading account	0.000438699	0	0.000438699	BTC	Check Note
+8/19/2025 13:19	To unified trading account	-30.83655494	30.83655494	0	USDT	Check Note
+8/19/2025 13:14	Simple Earn redemption	20	30.83655494	50.83655494	USDT	Check Note
+8/19/2025 13:14	To unified trading account	-20	50.83655494	30.83655494	USDT	Check Note
+8/19/2025 12:51	From unified trading account	30.83655494	0	30.83655494	USDT	Check Note
+8/14/2025 8:38	To unified trading account	-0.000250007	0.000250007	0	BTC	Check Note
+8/14/2025 8:37	Simple Earn redemption	0.00025	7.03965E-09	0.000250007	BTC	Check Note
+8/1/2025 7:32	Simple Earn subscription	-0.00099921	0.000999217	7.03965E-09	BTC	Check Note
+8/1/2025 7:31	From unified trading account	0.000999207	9.64483E-09	0.000999217	BTC	Check Note
+8/1/2025 7:30	To unified trading account	-116.5	116.5	0	USDT	Check Note
+8/1/2025 7:30	Simple Earn redemption	116.5	1.89396E-09	116.5	USDT	Check Note

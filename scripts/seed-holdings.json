@@ -1,0 +1,10 @@
+[
+  { "symbol": "BTC", "currentQuantity": 0.00849168, "source": "Earn" },
+  { "symbol": "XRP", "currentQuantity": 226.51296236, "source": "Earn" },
+  { "symbol": "LINK", "currentQuantity": 12.81463413, "source": "Earn" },
+  { "symbol": "SOL", "currentQuantity": 0.71099304, "source": "Earn" },
+  { "symbol": "AVAX", "currentQuantity": 6.39345065, "source": "Earn" },
+  { "symbol": "NIGHT", "currentQuantity": 1.13418545, "source": "Earn" },
+  { "symbol": "USDT", "currentQuantity": 0.00000001, "source": "Earn" },
+  { "symbol": "PI", "currentQuantity": 0.00000001, "source": "Earn" }
+]

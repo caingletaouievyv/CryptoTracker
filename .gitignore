@@ -1,0 +1,42 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# Private local notes (not part of the public doc set)
+docs/ia.md
+
+# Backend
+backend/bin/
+backend/obj/
+backend/*.db
+backend/*.db-shm
+backend/*.db-wal
+
+# Frontend
+node_modules/
+frontend/dist/
+frontend/.env
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# Scratch / local experiments
+_buildout*/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor (local IDE settings)
+.vscode/
