@@ -1,4 +1,4 @@
-import type { Dispatch, FormEvent, SetStateAction } from 'react'
+import type { ChangeEvent, Dispatch, FormEvent, SetStateAction } from 'react'
 import type { Transaction, CreateTransactionRequest } from '../types'
 import { formatDate, formatMoney, formatQuantity } from '../utils/format'
 import { ImportTradesPanel } from './ImportTradesPanel'
@@ -31,6 +31,15 @@ type Props = {
   binanceSyncing: boolean
   binanceSyncStatus: string | null
   runSyncBinance: () => void
+  csvPreview: CreateTransactionRequest[] | null
+  csvParseError: string | null
+  csvSkipped: number
+  csvFormat: string | null
+  onCsvFileChange: (e: ChangeEvent<HTMLInputElement>) => void
+  csvImporting: boolean
+  csvStatus: string | null
+  runCsvImport: () => void
+  onCsvClear: () => void
 }
 
 function txValue(t: Transaction): number {
@@ -62,6 +71,15 @@ export function TransactionsView({
   binanceSyncing,
   binanceSyncStatus,
   runSyncBinance,
+  csvPreview,
+  csvParseError,
+  csvSkipped,
+  csvFormat,
+  onCsvFileChange,
+  csvImporting,
+  csvStatus,
+  runCsvImport,
+  onCsvClear,
 }: Props) {
   return (
     <div className="view-transactions">
@@ -184,6 +202,15 @@ export function TransactionsView({
         binanceSyncing={binanceSyncing}
         binanceSyncStatus={binanceSyncStatus}
         runSyncBinance={runSyncBinance}
+        csvPreview={csvPreview}
+        csvParseError={csvParseError}
+        csvSkipped={csvSkipped}
+        csvFormat={csvFormat}
+        onCsvFileChange={onCsvFileChange}
+        csvImporting={csvImporting}
+        csvStatus={csvStatus}
+        runCsvImport={runCsvImport}
+        onCsvClear={onCsvClear}
       />
     </div>
   )

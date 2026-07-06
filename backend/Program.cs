@@ -96,7 +96,19 @@ builder.Services.AddScoped<ICurrentUser, CurrentUser>();
 builder.Services.AddScoped<JwtTokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient();
+builder.Services.AddHttpClient("PriceProvider", (sp, client) =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    var ua = config["PriceProvider:UserAgent"] ?? "CryptoTracker/1.0";
+    client.DefaultRequestHeaders.UserAgent.ParseAdd(ua);
+    client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
+    var cgKey = config["PriceProvider:CoinGeckoApiKey"];
+    if (!string.IsNullOrWhiteSpace(cgKey))
+        client.DefaultRequestHeaders.Add("x-cg-demo-api-key", cgKey);
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
 builder.Services.AddScoped<IPriceService, PriceService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IHoldingService, HoldingService>();

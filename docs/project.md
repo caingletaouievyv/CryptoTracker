@@ -33,7 +33,7 @@ Frontend patterns and screen layout: [docs/ui.md](ui.md). Engineering convention
 | Holdings snapshot | Available | Replace-all save; optional sell target and buy zone per symbol |
 | Portfolio dashboard | Available | Spot USD pricing, unrealized P/L, allocation %, strategy status, summary rollups |
 | Authentication | Available | Register/login, JWT bearer, per-user data isolation |
-| Exchange import | Available | OKX SPOT bills; Binance Spot `myTrades` (read-only keys, browser-stored) |
+| Exchange import | Available | CSV upload; OKX API (~3 months); Binance Spot myTrades (read-only keys, browser-stored) |
 | Theme | Available | Dark/light mode, persisted in browser storage |
 | Automated tests | — | Manual checklist only (see [Testing](#testing)) |
 | Refresh tokens / password reset | — | Not implemented |
@@ -54,7 +54,7 @@ CryptoTracker/
 ├── backend/                          ASP.NET Core 8 API
 │   ├── Controllers/
 │   │   ├── AuthController.cs         POST /api/auth/register, /login
-│   │   ├── TransactionController.cs  POST/GET /api/transaction, backfill-prices
+│   │   ├── TransactionController.cs  POST/GET /api/transaction, bulk, backfill-prices
 │   │   ├── PortfolioController.cs    GET /api/portfolio
 │   │   ├── HoldingsController.cs     GET/POST /api/holdings
 │   │   └── SyncController.cs         POST /api/sync/okx|binance/transactions
@@ -182,6 +182,7 @@ Build output directories (`bin/`, `obj/`, `node_modules/`, `frontend/dist/`) are
 | AuthController | POST /api/auth/register, /login | Create user or validate credentials; return JWT |
 | TransactionController | POST/GET /api/transaction | Add, list (Bearer; per-user) |
 | TransactionController | POST /api/transaction/backfill-prices | Backfill zero prices (Bearer) |
+| TransactionController | POST /api/transaction/bulk | Bulk add + backfill prices (Bearer) |
 | PortfolioController | GET /api/portfolio | Dashboard (Bearer) |
 | HoldingsController | GET/POST /api/holdings | Read or replace snapshot (Bearer) |
 | SyncController | POST /api/sync/okx/transactions | OKX SPOT bills (Bearer) |
@@ -202,6 +203,7 @@ All JSON responses use the envelope defined in [docs/architecture.md](architectu
 | POST | `/api/transaction` | **Bearer required.** Add transaction. `data` = transaction. **201** on success. |
 | GET | `/api/transaction` | **Bearer required.** Query `page` (default 1), `pageSize` (default 10, max 500). `data` = paginated list. |
 | POST | `/api/transaction/backfill-prices` | **Bearer required.** Backfill zero prices. `data` = `{ updated }`. |
+| POST | `/api/transaction/bulk` | **Bearer required.** Body `{ "transactions": [ … ] }` (max 5000). Bulk add; backfills prices. `data` = `{ synced, updated }`. **200** on success. |
 | GET | `/api/portfolio` | **Bearer required.** `data` = `{ positions, summary }`. |
 | GET | `/api/holdings` | **Bearer required.** `data` = holdings array. |
 | POST | `/api/holdings` | **Bearer required.** Replace snapshot. Body `{ "holdings": [ … ] }`. **200** on success. |
@@ -227,7 +229,7 @@ Interactive reference: Swagger at `/swagger` when the API is running locally.
 
 - **Quantity:** From the **holdings snapshot** only. Not derived by summing the ledger. Update via the Holdings view, `POST /api/holdings`, or seed scripts.
 - **Cost basis / average price:** From **Buy** rows with `priceAtTransaction > 0` only. Average = total buy cost ÷ total buy quantity. Cost basis = average × holding quantity. Sells and swaps do not adjust average cost.
-- **Spot price (today UTC):** CoinGecko batch pricing with CryptoCompare fallback. Empty price cells mean the provider could not resolve the ticker.
+- **Spot price (today UTC):** CoinGecko batch pricing (10-minute in-memory cache per symbol; retries once on rate limit). Optional `PriceProvider:CoinGeckoApiKey` ([free demo key](https://www.coingecko.com/en/api)). CryptoCompare fallback when a key is configured. Requests use `User-Agent` (CoinGecko returns 403 without one). Empty price cells mean the provider could not resolve the ticker.
 - **Unrealized P/L:** `(spotUsd − avgPrice) × quantity` when average and spot are available.
 - **Realized (summary):** Sum of sell proceeds (`quantity × price + fee` for Sell rows with price > 0). Not matched-lot P/L.
 - **Strategy status (API):** `READY TO SELL` when spot ≥ sell target; `ACCUMULATION ZONE` when spot ≤ buy zone; otherwise `WAITING`. The UI maps these to compact labels (see [docs/ui.md](ui.md)).
@@ -246,8 +248,12 @@ Interactive reference: Swagger at `/swagger` when the API is running locally.
 
 **Transactions (optional import):**
 
-1. **OKX:** Transactions → Import trades → OKX. Read-only API key with Trading read permission. SPOT trade bills only (~3 months). Keys stored in browser `localStorage` only.
-2. **Binance:** Import trades → Binance. Read-only key, secret, and Spot symbol list. Scans up to `Binance:HistoryLookbackMaxDays` (default 3650). Commission in **Fee** when paid in quote.
+| Method | History | Notes |
+|--------|---------|--------|
+| **CSV file** | Any (UI upload) | OKX **Trading History** export (`Time, Trade Type, Balance Change, Balance Unit, Filled Price`) or template: `date, symbol, type, quantity, price, fee`. Metadata rows (UID) skipped. Spot/Convert legs import via signed Balance Change; Transfer, Swap, Funding skipped. Max 5000 rows. |
+| **OKX** | ~3 months | [Create read-only key](https://www.okx.com/account/my-api) (Trading **Read**). SPOT trades, Convert, Simple trade — not Transfer/Funding. |
+| **Binance** | Up to ~10 years Spot `myTrades` | [Create read-only key](https://www.binance.com/en/my/settings/api-management). Set **Days** to `0` for max lookback. |
+| **Seed scripts** | Any | Terminal: `scripts/parse-export.js` → `scripts/seed-api.js` (see README). |
 
 **Important:** Sync updates the transaction ledger only. Portfolio quantity changes only when holdings are saved separately.
 
@@ -282,7 +288,8 @@ Interactive reference: Swagger at `/swagger` when the API is running locally.
 | Page load (signed in) | App.tsx → api.getTransactions + getPortfolio + getHoldings |
 | Add transaction | TransactionsView → api.addTransaction → reload |
 | Save holdings | HoldingsView → api.setHoldings → reload |
-| Import trades | TransactionsView → ImportTradesPanel → api sync endpoints → reload |
+| Import CSV | ImportTradesPanel → parseCsvTransactions → POST /api/transaction/bulk → backfill |
+| Import (OKX / Binance) | TransactionsView → ImportTradesPanel → api sync endpoints → reload |
 | Theme toggle | App state + localStorage + `data-theme` on document (no backend) |
 
 **Trace summary:** Form or view → `services/api.ts` → controller → service → AppDbContext → SQLite.

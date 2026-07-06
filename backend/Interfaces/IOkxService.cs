@@ -1,8 +1,18 @@
 using CryptoTracker.DTOs;
 
+
+
 namespace CryptoTracker.Interfaces;
 
+
+
 public interface IOkxService
+
 {
-    Task<IReadOnlyList<OkxBillItem>> GetBillsAsync(string? after = null, int limit = 100, OkxCredentials? credentials = null, CancellationToken cancellationToken = default);
+
+    /// <summary>Recent (7d) + archive (3mo) bills, deduped. Caller filters bill types.</summary>
+
+    Task<IReadOnlyList<OkxBillItem>> FetchBillsForSyncAsync(int limit, OkxCredentials credentials, CancellationToken cancellationToken = default);
+
 }
+

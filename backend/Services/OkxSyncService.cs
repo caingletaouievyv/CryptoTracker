@@ -22,12 +22,11 @@ public class OkxSyncService : IOkxSyncService
         if (creds == null)
             throw new ArgumentException("Provide OKX credentials in the request body (apiKey, secretKey, passphrase).");
 
-        var after = body?.After;
         var limit = Math.Clamp(body?.Limit ?? 100, 1, 100);
-        IReadOnlyList<OkxBillItem> bills;
+        IReadOnlyList<OkxBillItem> allBills;
         try
         {
-            bills = await _okxService.GetBillsAsync(after, limit, creds, cancellationToken);
+            allBills = await _okxService.FetchBillsForSyncAsync(limit, creds, cancellationToken);
         }
         catch (HttpRequestException)
         {
@@ -35,13 +34,15 @@ public class OkxSyncService : IOkxSyncService
                 "Cannot reach OKX. Check your network and that www.okx.com is not blocked (firewall, DNS, or region).");
         }
 
+        var bills = allBills.Where(IsSyncableBill).ToList();
+
         if (bills.Count == 0)
         {
             return new OkxSyncResultDto
             {
                 Synced = 0,
                 Updated = 0,
-                Message = "No SPOT trade bills in this range. OKX returns up to ~3 months of trading bills; ensure your API key has Read permission for Trading. For Earn/Funding activity, use CSV import or add transactions manually."
+                Message = BuildEmptyMessage(allBills),
             };
         }
 
@@ -65,7 +66,7 @@ public class OkxSyncService : IOkxSyncService
                 Fee = fee,
                 Date = date,
                 BaseCurrency = baseCcy,
-                Notes = string.IsNullOrEmpty(b.BillId) ? null : "OKX:" + b.BillId
+                Notes = string.IsNullOrEmpty(b.BillId) ? null : "OKX:" + b.BillId,
             });
         }
 
@@ -75,7 +76,7 @@ public class OkxSyncService : IOkxSyncService
             {
                 Synced = 0,
                 Updated = 0,
-                Message = "No Buy/Sell bills in this page."
+                Message = $"OKX returned {bills.Count} trade/convert bill(s) but none mapped to Buy/Sell. Check OKX bill subtypes.",
             };
         }
 
@@ -85,16 +86,36 @@ public class OkxSyncService : IOkxSyncService
         {
             Synced = synced,
             Updated = updated,
-            Message = "Transactions synced from OKX bills; prices backfilled where missing."
+            Message = "Transactions synced from OKX (SPOT trades, Convert, Simple trade); prices backfilled where missing.",
         };
     }
 
+    private static string BuildEmptyMessage(IReadOnlyList<OkxBillItem> allBills)
+    {
+        if (allBills.Count == 0)
+        {
+            return "OKX returned no bills. Confirm the API key has Read permission, passphrase is correct, and the key belongs to this account. Transfer/Funding-only activity is not imported. Older than ~3 months: use seed scripts.";
+        }
+
+        var types = string.Join(", ", allBills.Select(b => b.Type).Distinct().OrderBy(t => t).Take(6));
+        return $"OKX returned {allBills.Count} bill(s) (types: {types}) but none were SPOT trade, Convert, or Simple trade. Transfer rows are skipped.";
+    }
+
+    private static bool IsSyncableBill(OkxBillItem b) => b.Type is "2" or "27" or "30";
+
+    /// <summary>OKX bill subTypes → ledger type. See OKX GET /api/v5/account/subtypes.</summary>
     private static string? MapOkxSubTypeToType(string subType) =>
         subType switch
         {
             "1" => "Buy",
             "2" => "Sell",
-            _ => null
+            "318" => "Buy",
+            "319" => "Sell",
+            "320" => "Buy",
+            "321" => "Sell",
+            "236" => "Buy",
+            "237" => "Sell",
+            _ => null,
         };
 
     private static string GetBaseFromInstId(string instId)

@@ -2,7 +2,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using CryptoTracker.DTOs;
+using CryptoTracker.Exceptions;
 using CryptoTracker.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace CryptoTracker.Services;
 
@@ -17,55 +19,100 @@ public class OkxService : IOkxService
         _config = config;
     }
 
-    public async Task<IReadOnlyList<OkxBillItem>> GetBillsAsync(string? after = null, int limit = 100, OkxCredentials? credentials = null, CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyList<OkxBillItem>> FetchBillsForSyncAsync(
+        int limit,
+        OkxCredentials credentials,
+        CancellationToken cancellationToken = default)
+    {
+        limit = Math.Clamp(limit, 1, 100);
+        var merged = new Dictionary<string, OkxBillItem>(StringComparer.Ordinal);
+
+        AddBills(merged, await GetBillsPageAsync("/api/v5/account/bills", null, limit, credentials, cancellationToken));
+
+        string? cursor = null;
+        for (var page = 0; page < 50; page++)
+        {
+            var batch = await GetBillsPageAsync("/api/v5/account/bills-archive", cursor, limit, credentials, cancellationToken);
+            if (batch.Count == 0) break;
+            AddBills(merged, batch);
+            if (batch.Count < limit) break;
+            cursor = batch[^1].BillId;
+            if (string.IsNullOrEmpty(cursor)) break;
+        }
+
+        return merged.Values.ToList();
+    }
+
+    private static void AddBills(Dictionary<string, OkxBillItem> merged, IReadOnlyList<OkxBillItem> batch)
+    {
+        foreach (var b in batch)
+        {
+            if (!string.IsNullOrEmpty(b.BillId))
+                merged[b.BillId] = b;
+        }
+    }
+
+    private async Task<IReadOnlyList<OkxBillItem>> GetBillsPageAsync(
+        string endpoint,
+        string? after,
+        int limit,
+        OkxCredentials credentials,
+        CancellationToken cancellationToken)
     {
         if (!TryGetAuth(credentials, out var key, out var secret, out var passphrase))
             return Array.Empty<OkxBillItem>();
 
-        var query = new List<string> { "instType=SPOT", "type=2", $"limit={Math.Clamp(limit, 1, 100)}" };
-        if (!string.IsNullOrEmpty(after)) query.Add($"after={after}");
+        var query = new List<string> { $"limit={limit}" };
+        if (!string.IsNullOrEmpty(after))
+            query.Add($"after={Uri.EscapeDataString(after)}");
+
         var queryStr = string.Join("&", query);
-        var requestPath = "/api/v5/account/bills?" + queryStr;
+        var requestPath = $"{endpoint}?{queryStr}";
         var request = new HttpRequestMessage(HttpMethod.Get, BuildUri(requestPath));
-        Sign(request, "GET", "/api/v5/account/bills?" + queryStr, null, key, secret, passphrase);
+        Sign(request, "GET", requestPath, null, key, secret, passphrase);
 
         var response = await _httpClient.SendAsync(request, cancellationToken);
         var json = await response.Content.ReadAsStringAsync(cancellationToken);
+
         if (!response.IsSuccessStatusCode)
-            return Array.Empty<OkxBillItem>();
+        {
+            throw new AppHttpException(StatusCodes.Status502BadGateway,
+                $"OKX HTTP {(int)response.StatusCode}. Check Okx:BaseUrl (default https://www.okx.com) and network access.");
+        }
 
         using var doc = JsonDocument.Parse(json);
         var root = doc.RootElement;
-        if (root.TryGetProperty("code", out var code) && code.GetString() != "0")
-            return Array.Empty<OkxBillItem>();
+        var code = root.TryGetProperty("code", out var codeEl) ? codeEl.GetString() : null;
+        var msg = root.TryGetProperty("msg", out var msgEl) ? msgEl.GetString() : null;
+
+        if (code != "0")
+        {
+            throw new AppHttpException(StatusCodes.Status502BadGateway,
+                string.IsNullOrWhiteSpace(msg)
+                    ? $"OKX API error (code {code ?? "?"}). Check API key Read permission and passphrase."
+                    : $"OKX API: {msg} (code {code})");
+        }
+
         if (!root.TryGetProperty("data", out var data))
             return Array.Empty<OkxBillItem>();
 
         var list = new List<OkxBillItem>();
         foreach (var b in data.EnumerateArray())
         {
-            var billId = b.TryGetProperty("billId", out var bi) ? bi.GetString() ?? "" : "";
-            var ccy = b.TryGetProperty("ccy", out var c) ? c.GetString() ?? "" : "";
-            var type = b.TryGetProperty("type", out var t) ? t.GetString() ?? "" : "";
-            var subType = b.TryGetProperty("subType", out var st) ? st.GetString() ?? "" : "";
-            var ts = b.TryGetProperty("ts", out var tsProp) ? tsProp.GetString() ?? "" : "";
-            var sz = b.TryGetProperty("sz", out var szProp) && decimal.TryParse(szProp.GetString(), out var szVal) ? szVal : 0m;
-            var px = b.TryGetProperty("px", out var pxProp) && decimal.TryParse(pxProp.GetString(), out var pxVal) ? pxVal : 0m;
-            var fee = b.TryGetProperty("fee", out var feeProp) && decimal.TryParse(feeProp.GetString(), out var feeVal) ? feeVal : 0m;
-            var instId = b.TryGetProperty("instId", out var ii) ? ii.GetString() ?? "" : "";
             list.Add(new OkxBillItem
             {
-                BillId = billId,
-                Ccy = ccy,
-                Type = type,
-                SubType = subType,
-                Ts = ts,
-                Sz = sz,
-                Px = px,
-                Fee = fee,
-                InstId = instId
+                BillId = b.TryGetProperty("billId", out var bi) ? bi.GetString() ?? "" : "",
+                Ccy = b.TryGetProperty("ccy", out var c) ? c.GetString() ?? "" : "",
+                Type = b.TryGetProperty("type", out var t) ? t.GetString() ?? "" : "",
+                SubType = b.TryGetProperty("subType", out var st) ? st.GetString() ?? "" : "",
+                Ts = b.TryGetProperty("ts", out var tsProp) ? tsProp.GetString() ?? "" : "",
+                Sz = b.TryGetProperty("sz", out var szProp) && decimal.TryParse(szProp.GetString(), out var szVal) ? szVal : 0m,
+                Px = b.TryGetProperty("px", out var pxProp) && decimal.TryParse(pxProp.GetString(), out var pxVal) ? pxVal : 0m,
+                Fee = b.TryGetProperty("fee", out var feeProp) && decimal.TryParse(feeProp.GetString(), out var feeVal) ? feeVal : 0m,
+                InstId = b.TryGetProperty("instId", out var ii) ? ii.GetString() ?? "" : "",
             });
         }
+
         return list;
     }
 
@@ -78,6 +125,7 @@ public class OkxService : IOkxService
             passphrase = overrides.Passphrase.Trim();
             return true;
         }
+
         apiKey = _config["Okx:ApiKey"] ?? "";
         secret = _config["Okx:SecretKey"] ?? "";
         passphrase = _config["Okx:Passphrase"] ?? "";
@@ -94,8 +142,7 @@ public class OkxService : IOkxService
     {
         var timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
         var prehash = timestamp + method + requestPath + (body ?? "");
-        var secretBytes = Encoding.UTF8.GetBytes(secret);
-        using var hmac = new HMACSHA256(secretBytes);
+        using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secret));
         var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(prehash));
         var sign = Convert.ToBase64String(hash);
 

@@ -19,16 +19,19 @@ Requires backend and frontend running ([Quick start](#quick-start)).
 
 ### Walkthrough
 
+Screen recordings live in [`docs/demo/`](docs/demo/). Use a demo account with sample data for presentations; do not import personal exchange exports on shared accounts.
+
 | Feature | Demo | Steps |
 |---------|------|-------|
-| Sign in / Register | — | 1. Open the application.<br>2. Enter username and password.<br>3. Select **Log in** or **Register**.<br>4. Sidebar shell loads; **Portfolio** is the default view. |
-| Portfolio dashboard | — | 1. Sidebar → **Portfolio**.<br>2. Review stat row: total value, cost basis, unrealized P/L, BTC dominance.<br>3. Review holdings table: quantity, price, value, avg cost, P/L, allocation %, strategy tag. |
-| Holdings snapshot | — | 1. Sidebar → **Holdings**.<br>2. Edit symbol, quantity, source; optional sell target and buy zone.<br>3. **Add row** if needed, then **Save holdings**.<br>4. **Portfolio** reflects updated quantities; cost/avg remains from buy history. |
-| Add transaction | — | 1. Sidebar → **Transactions**.<br>2. Complete **Add transaction** (symbol, type, quantity, price, fee, date).<br>3. Select **Add**; ledger refreshes.<br>4. **Portfolio** cost basis updates from buys (price > 0). |
-| Import trades | — | 1. Sidebar → **Transactions** → **Import trades**.<br>2. Expand **OKX** or **Binance**; enter read-only credentials → **Save keys** (browser storage only).<br>3. **Sync OKX** or **Sync Binance**.<br>4. Ledger updates; holdings unchanged until the snapshot is saved separately. |
-| Theme toggle | — | 1. Top bar → theme control.<br>2. Dark or light mode applies.<br>3. Preference persists across reload (`localStorage`). |
+| Sign in / Register | [Recording](docs/demo/Sign-in.gif) | 1. Open the application.<br>2. Enter username and password.<br>3. Select **Log in** or **Register**.<br>4. The sidebar shell loads. |
+| Holdings snapshot | [Recording](docs/demo/HoldingsSnapshot.gif) | 1. Sidebar → **Holdings**.<br>2. Enter symbol, quantity, and source; optional sell target and buy zone.<br>3. **Add row** if needed, then **Save holdings**.<br>4. Saved balances are the quantity source for **Portfolio**. |
+| Portfolio dashboard | [Recording](docs/demo/PortfolioDashboard.gif) | 1. Sidebar → **Portfolio**.<br>2. Review the stat row: total value, cost basis, unrealized P/L, BTC dominance.<br>3. Review the holdings table: quantity, price, value, average cost, P/L, allocation %, and strategy tag. |
+| Add transaction | [Recording](docs/demo/AddTransaction.gif) | 1. Sidebar → **Transactions**.<br>2. Complete **Add transaction** (symbol, type, quantity, price, fee, date).<br>3. Select **Add**; the ledger refreshes.<br>4. **Portfolio** cost basis updates from buys with price &gt; 0. |
+| Import trades (CSV) | [Recording](docs/demo/ImportTrades(CSV).gif) | 1. Sidebar → **Transactions** → **Import trades** → **CSV file**.<br>2. Choose a `.csv` (template or exchange export).<br>3. Confirm row count → **Import CSV**; zero prices backfill automatically.<br>4. Import updates the ledger only; save **Holdings** separately to change portfolio quantity. |
+| Import trades (API) | — | 1. Sidebar → **Transactions** → **Import trades** → **OKX** or **Binance**.<br>2. Create a read-only API key ([OKX](https://www.okx.com/account/my-api) · [Binance](https://www.binance.com/en/my/settings/api-management)) → **Save keys** (browser only).<br>3. **Sync OKX** or **Sync Binance**.<br>4. Ledger updates; holdings unchanged until saved separately on **Holdings**. |
+| Theme toggle | [Recording](docs/demo/ThemeToggle.gif) | 1. Top bar → theme control.<br>2. Dark or light mode applies.<br>3. Preference persists across reload. |
 
-Transaction ledger supports an optional filter: fees, transfers, and zero-price buys.
+The transaction ledger supports an optional filter for fees, transfers, and zero-price buys. Exchange credentials are stored in the browser only.
 
 ---
 
@@ -55,9 +58,10 @@ Transaction ledger supports an optional filter: fees, transfers, and zero-price 
 
 ### Exchange integration
 
-- OKX SPOT trade import (read-only API keys, browser-stored)
-- Binance Spot `myTrades` import (symbol list, configurable lookback)
-- Seed scripts for bulk transaction and holdings load
+- CSV import (template or OKX export; bulk load in the UI)
+- OKX import (read-only keys, browser-stored; ~3 months — SPOT, Convert, Simple trade)
+- Binance Spot `myTrades` import (symbol list; up to ~10 years lookback)
+- Seed scripts for terminal bulk load (alternative to CSV)
 
 ### Productivity
 

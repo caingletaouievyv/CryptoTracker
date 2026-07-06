@@ -89,13 +89,20 @@ select:focus-visible {
 }
 
 .dash-brand {
-  padding: 0.85rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.dash-sidebar .dash-brand {
+  padding: 0.85rem 1rem;
   border-bottom: 1px solid var(--border);
+}
+
+.auth-top .dash-brand {
+  padding: 0;
 }
 
 .dash-nav {
@@ -347,8 +354,8 @@ select:focus-visible {
   background: var(--hover);
 }
 
-.terminal-table .num,
-th.num {
+.terminal-table:not(.terminal-table--edit) .num,
+.terminal-table:not(.terminal-table--edit) th.num {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
@@ -403,8 +410,11 @@ th.num {
   background: var(--input-bg);
 }
 
-.terminal-table--edit td .cell-input.num {
-  text-align: right;
+/* Edit table: left-align headers and inputs */
+.terminal-table.terminal-table--edit th,
+.terminal-table.terminal-table--edit td,
+.terminal-table.terminal-table--edit .cell-input {
+  text-align: left;
 }
 
 /* —— Toolbar & panels —— */

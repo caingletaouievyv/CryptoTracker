@@ -22,6 +22,7 @@ backend/*.db-wal
 # Frontend
 node_modules/
 frontend/dist/
+*.tsbuildinfo
 frontend/.env
 .env
 .env.*

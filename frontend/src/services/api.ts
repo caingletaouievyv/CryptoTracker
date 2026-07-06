@@ -119,6 +119,20 @@ export async function addTransaction(t: CreateTransactionRequest): Promise<Trans
   return expectOkData<Transaction>(res)
 }
 
+export interface BulkImportResult {
+  synced: number
+  updated: number
+}
+
+export async function importTransactionsBulk(transactions: CreateTransactionRequest[]): Promise<BulkImportResult> {
+  const res = await fetch(`${base}/api/transaction/bulk`, withAuth({
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ transactions }),
+  }))
+  return expectOkData<BulkImportResult>(res)
+}
+
 export async function getPortfolio(): Promise<PortfolioDashboard> {
   const res = await fetch(`${base}/api/portfolio`, withAuth())
   return expectOkData<PortfolioDashboard>(res)

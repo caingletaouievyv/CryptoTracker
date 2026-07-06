@@ -19,7 +19,7 @@ public class SyncController : ControllerBase
         _binanceSyncService = binanceSyncService;
     }
 
-    /// <summary>Sync SPOT Buy/Sell from OKX bills. Credentials: config (Okx:*) or optional body. Optional body: after, limit.</summary>
+    /// <summary>Sync SPOT trades, Convert, and Simple trade from OKX bills. Not Transfer/Funding. Credentials: body or Okx:* config.</summary>
     [HttpPost("okx/transactions")]
     [ProducesResponseType(typeof(ApiResponse<OkxSyncResultDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]

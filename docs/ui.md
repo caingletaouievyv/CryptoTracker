@@ -34,12 +34,13 @@ frontend/
     │   ├── PortfolioView.tsx     Summary stats + holdings table
     │   ├── HoldingsView.tsx      Editable holdings table
     │   ├── TransactionsView.tsx  Ledger, add form, import panel
-    │   ├── ImportTradesPanel.tsx OKX / Binance credential panels
+    │   ├── ImportTradesPanel.tsx CSV, OKX, and Binance import panels
     │   └── SignInView.tsx        Full-screen auth (no sidebar)
     ├── utils/
     │   ├── format.ts       formatMoney, formatQuantity, pnlClass
     │   ├── strategy.ts     API status → display label and CSS class
-    │   └── portfolio.ts    filterVisiblePositions, btcDominancePercent
+    │   ├── portfolio.ts    filterVisiblePositions, btcDominancePercent
+    │   └── parseCsvTransactions.ts  CSV → CreateTransactionRequest (template + OKX Trading History)
     └── services/
         └── api.ts          fetch helpers; unwraps API envelope
 ```
@@ -76,7 +77,7 @@ frontend/
 
 - Body: `system-ui`, 13px base.
 - Page title: `.dash-page-title` in the top bar.
-- Numbers: `.num` (tabular, right-aligned); `.mono` for prices.
+- Numbers: `.num` (tabular, right-aligned in display tables); `.mono` for prices. Holdings editor (`.terminal-table--edit`) left-aligns headers and inputs.
 - Shell: fixed sidebar (`--sidebar-w`) + `.dash-main` content area.
 - Portfolio: `.stat-row` (four stat cards) + `.terminal-table` (sticky header, zebra rows).
 - Tables scroll inside `.terminal-wrap` with viewport-based max height.
@@ -98,7 +99,7 @@ Signed-in users see sidebar navigation with tabs: **Portfolio** (default), **Hol
 |------|-----|---------|
 | **Portfolio** | GET `/api/portfolio` | Four stat cards (value, cost, unrealized P/L, BTC dominance); table with symbol, qty, price, value, avg cost, P/L, allocation %, strategy tag |
 | **Holdings** | GET/POST `/api/holdings` | Inline-editable snapshot; save replaces all rows; sell target and buy zone columns |
-| **Transactions** | GET/POST `/api/transaction` | Paginated ledger, add form, import trades panel (OKX / Binance) |
+| **Transactions** | GET/POST `/api/transaction` | Paginated ledger, add form, import panel (CSV, OKX, Binance) |
 
 **Signed out:** `SignInView` full screen (register or log in). JWT and username stored in `localStorage`; `api.ts` sends `Authorization: Bearer` on protected calls.
 
@@ -148,7 +149,7 @@ Mapping: `src/utils/strategy.ts`.
 | Transaction noise filter | `isNoiseTransaction` in `App.tsx` + checkbox on Transactions |
 | Pagination | Server-side; client requests `pageSize` 100 in `getTransactions()` |
 | Portfolio dust filter | Hides rows with `\|quantity\| < 1e-10` |
-| Exchange import | Collapsible `<details>` panels; credentials never sent except to sync endpoints |
+| Exchange import | Collapsible panels: **CSV file** (first), OKX, Binance |
 
 ---
 

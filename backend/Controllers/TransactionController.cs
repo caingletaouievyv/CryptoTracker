@@ -47,4 +47,16 @@ public class TransactionController : ControllerBase
         var updated = await _transactionService.BackfillPricesAsync(cancellationToken);
         return Ok(ApiResponse<BackfillPricesResultDto>.Ok(new BackfillPricesResultDto { Updated = updated }));
     }
+
+    [HttpPost("bulk")]
+    [ProducesResponseType(typeof(ApiResponse<BulkImportResultDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<ApiResponse<BulkImportResultDto>>> BulkAddTransactions(
+        [FromBody] BulkTransactionsRequest request,
+        CancellationToken cancellationToken)
+    {
+        var synced = await _transactionService.AddTransactionsAsync(request.Transactions, cancellationToken);
+        var updated = await _transactionService.BackfillPricesAsync(cancellationToken);
+        return Ok(ApiResponse<BulkImportResultDto>.Ok(new BulkImportResultDto { Synced = synced, Updated = updated }));
+    }
 }

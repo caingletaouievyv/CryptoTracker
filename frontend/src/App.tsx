@@ -1,7 +1,8 @@
-import { useState, useEffect, useMemo, type FormEvent } from 'react'
+import { useState, useEffect, useMemo, type ChangeEvent, type FormEvent } from 'react'
 import {
   getTransactions,
   addTransaction,
+  importTransactionsBulk,
   getPortfolio,
   getHoldings,
   setHoldings,
@@ -20,6 +21,7 @@ import { TransactionsView } from './components/TransactionsView'
 import { HoldingsView } from './components/HoldingsView'
 import { SignInView } from './components/SignInView'
 import { filterVisiblePositions } from './utils/portfolio'
+import { parseCsvTransactions } from './utils/parseCsvTransactions'
 
 const THEME_KEY = 'theme'
 const OKX_CREDS_KEY = 'cryptotracker_okx'
@@ -135,6 +137,12 @@ export default function App() {
   const [binanceSaved, setBinanceSaved] = useState(false)
   const [binanceSyncStatus, setBinanceSyncStatus] = useState<string | null>(null)
   const [binanceSyncing, setBinanceSyncing] = useState(false)
+  const [csvPreview, setCsvPreview] = useState<CreateTransactionRequest[] | null>(null)
+  const [csvParseError, setCsvParseError] = useState<string | null>(null)
+  const [csvSkipped, setCsvSkipped] = useState(0)
+  const [csvFormat, setCsvFormat] = useState<string | null>(null)
+  const [csvImporting, setCsvImporting] = useState(false)
+  const [csvStatus, setCsvStatus] = useState<string | null>(null)
   const [holdingRows, setHoldingRows] = useState<HoldingItem[]>([emptyHoldingRow()])
   const [holdingError, setHoldingError] = useState<string | null>(null)
   const [holdingSaving, setHoldingSaving] = useState(false)
@@ -340,6 +348,54 @@ export default function App() {
     }
   }
 
+  const clearCsvImport = () => {
+    setCsvPreview(null)
+    setCsvParseError(null)
+    setCsvSkipped(0)
+    setCsvFormat(null)
+    setCsvStatus(null)
+  }
+
+  const onCsvFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    clearCsvImport()
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = () => {
+      try {
+        const text = String(reader.result ?? '')
+        const parsed = parseCsvTransactions(text)
+        setCsvPreview(parsed.rows)
+        setCsvSkipped(parsed.skipped)
+        setCsvFormat(parsed.format)
+      } catch (err) {
+        setCsvParseError(err instanceof Error ? err.message : 'Could not parse CSV')
+      }
+    }
+    reader.onerror = () => setCsvParseError('Could not read file')
+    reader.readAsText(file)
+  }
+
+  const runCsvImport = async () => {
+    if (!csvPreview?.length) return
+    setCsvImporting(true)
+    setCsvStatus(null)
+    try {
+      const r = await importTransactionsBulk(csvPreview)
+      setCsvPreview(null)
+      setCsvParseError(null)
+      setCsvSkipped(0)
+      setCsvFormat(null)
+      setCsvStatus(`Imported ${r.synced} transaction(s); ${r.updated} prices backfilled.`)
+      await load()
+    } catch (e) {
+      setCsvStatus(e instanceof Error ? e.message : 'CSV import failed')
+    } finally {
+      setCsvImporting(false)
+    }
+  }
+
   if (!hasToken) {
     return (
       <SignInView
@@ -412,6 +468,15 @@ export default function App() {
           binanceSyncing={binanceSyncing}
           binanceSyncStatus={binanceSyncStatus}
           runSyncBinance={runSyncBinance}
+          csvPreview={csvPreview}
+          csvParseError={csvParseError}
+          csvSkipped={csvSkipped}
+          csvFormat={csvFormat}
+          onCsvFileChange={onCsvFileChange}
+          csvImporting={csvImporting}
+          csvStatus={csvStatus}
+          runCsvImport={runCsvImport}
+          onCsvClear={clearCsvImport}
         />
       )}
     </AppShell>
