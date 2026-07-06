@@ -19,8 +19,6 @@ Requires backend and frontend running ([Quick start](#quick-start)).
 
 ### Walkthrough
 
-Screen recordings live in [`docs/demo/`](docs/demo/). Use a demo account with sample data for presentations; do not import personal exchange exports on shared accounts.
-
 | Feature | Demo | Steps |
 |---------|------|-------|
 | Sign in / Register | ![Sign in / Register](docs/demo/Sign-in.gif) | 1. Open the application.<br>2. Enter username and password.<br>3. Select **Log in** or **Register**.<br>4. The sidebar shell loads. |
