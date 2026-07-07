@@ -1,0 +1,12 @@
+**/bin/
+**/obj/
+**/node_modules/
+frontend/dist/
+**/*.db
+**/*.db-shm
+**/*.db-wal
+.git/
+.vscode/
+.env
+frontend/.env
+docs/ia.md

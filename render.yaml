@@ -1,0 +1,22 @@
+databases:
+  - name: cryptotracker-db
+    plan: free
+
+services:
+  - type: web
+    name: cryptotracker-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: Jwt__SigningKey
+        generateValue: true
+      - key: Cors__AllowedOrigins
+        sync: false
+      - key: ConnectionStrings__DefaultConnection
+        fromDatabase:
+          name: cryptotracker-db
+          property: connectionString

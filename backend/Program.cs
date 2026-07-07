@@ -13,6 +13,10 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrWhiteSpace(port))
+    builder.WebHost.UseUrls($"http://+:{port}");
+
 builder.Services.AddControllers()
     .AddJsonOptions(o => o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
 builder.Services.AddEndpointsApiExplorer();
@@ -55,8 +59,11 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
     };
 });
 
-var conn = builder.Configuration.GetConnectionString("DefaultConnection");
-if (!string.IsNullOrEmpty(conn) && conn.TrimStart().StartsWith("Data Source=", StringComparison.OrdinalIgnoreCase))
+var conn = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? Environment.GetEnvironmentVariable("DATABASE_URL");
+var usePostgres = IsPostgresConnection(conn);
+
+if (!usePostgres && !string.IsNullOrEmpty(conn) && conn.TrimStart().StartsWith("Data Source=", StringComparison.OrdinalIgnoreCase))
 {
     var name = conn.TrimStart().Substring("Data Source=".Length).Trim();
     if (name.Length > 0 && !Path.IsPathRooted(name))
@@ -65,8 +72,14 @@ if (!string.IsNullOrEmpty(conn) && conn.TrimStart().StartsWith("Data Source=", S
         conn = "Data Source=" + dbPath;
     }
 }
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(conn));
+{
+    if (usePostgres)
+        options.UseNpgsql(conn);
+    else
+        options.UseSqlite(conn ?? "Data Source=CryptoTracker.db");
+});
 
 var jwtKey = builder.Configuration["Jwt:SigningKey"] ?? "";
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "CryptoTracker";
@@ -141,14 +154,22 @@ using (var scope = app.Services.CreateScope())
     var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
     try
     {
-        var path = db.Database.GetDbConnection().DataSource;
-        logger.LogInformation("Database: {Path}", path);
-        db.Database.Migrate();
-        logger.LogInformation("Migrations applied.");
+        if (usePostgres)
+        {
+            db.Database.EnsureCreated();
+            logger.LogInformation("PostgreSQL schema ensured.");
+        }
+        else
+        {
+            var path = db.Database.GetDbConnection().DataSource;
+            logger.LogInformation("Database: {Path}", path);
+            db.Database.Migrate();
+            logger.LogInformation("Migrations applied.");
+        }
     }
     catch (Exception ex)
     {
-        logger.LogError(ex, "Migrations failed. Delete CryptoTracker.db (and -shm/-wal) then restart.");
+        logger.LogError(ex, "Database setup failed.");
         throw;
     }
 }
@@ -165,5 +186,15 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
 
 app.Run();
+
+static bool IsPostgresConnection(string? connectionString)
+{
+    if (string.IsNullOrWhiteSpace(connectionString)) return false;
+    var c = connectionString.Trim();
+    return c.StartsWith("Host=", StringComparison.OrdinalIgnoreCase)
+        || c.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase)
+        || c.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase);
+}
