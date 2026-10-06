@@ -1,8 +1,4 @@
-databases:
-  - name: cryptotracker-db
-    plan: free
-
-services:
+﻿services:
   - type: web
     name: cryptotracker-api
     runtime: docker
@@ -17,6 +13,4 @@ services:
       - key: Cors__AllowedOrigins
         sync: false
       - key: ConnectionStrings__DefaultConnection
-        fromDatabase:
-          name: cryptotracker-db
-          property: connectionString
+        sync: false
